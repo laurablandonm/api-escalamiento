@@ -128,3 +128,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#archivos de ejercicios
+ejercicio-1.js
+ejercicio-2.js
