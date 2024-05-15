@@ -8,3 +8,9 @@ export const crearEtapa = async (requestEtapa) => {
     return await etapa.save();
 }
 
+export const obtenerEtapas = async () => {
+    const listaEtapas = await Etapa.find();
+    return listaEtapas;
+
+}
+

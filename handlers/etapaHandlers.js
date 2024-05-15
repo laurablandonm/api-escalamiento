@@ -1,4 +1,4 @@
-import { crearEtapa } from "../controllers/etapaControllers.js"
+import { crearEtapa, obtenerEtapas } from "../controllers/etapaControllers.js"
 
 export const crearEtapaHandler = async (req,res) => {
     try {
@@ -6,7 +6,19 @@ export const crearEtapaHandler = async (req,res) => {
         return res.status(200).json(nuevaEtapa);
     } catch (error) {
         console.log (error)
-        return res.status(500).json({error:"Algo salió mal"})        
+        return res.status(500).json({error:"Algo salió mal"})   
     }
+    
+}
 
+export const obtenerEtapasHandler = async (req,res) => {
+    try{
+        const etapas = await obtenerEtapas();
+        return res.status(200).json(etapas);
+        
+    } catch(error){
+        console.log(error)
+        return res.status(500).json({error:"Algo salió mal"})     
+    }
+ 
 }
