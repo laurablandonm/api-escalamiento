@@ -14,3 +14,22 @@ export const obtenerEtapas = async () => {
 
 }
 
+export const editarEtapa = async(requestEtapa, idEtapa) => {
+    const etapa = await Etapa.findById(idEtapa);
+    if(etapa != null){
+        etapa.nombre = requestEtapa.nombre;
+        etapa.fechaActualizacion = new Date();
+        const etapaActualizada = await etapa.save();
+        return etapaActualizada;
+    } 
+    return null;
+
+
+}
+
+
+export const eliminarEtapa = async (id) => {
+    const etapa = await Etapa.findByIdAndDelete(id);
+    return (etapa != null) ? {deleted: true} : {deleted: false}
+
+}
